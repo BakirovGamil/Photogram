@@ -22,6 +22,12 @@ const GlobalStyle = createGlobalStyle`
     margin: 0 auto;
     padding: 0 20px;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    .container {
+      padding: 0 5px;
+    }
+  }
 `;
 
 export default GlobalStyle;

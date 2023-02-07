@@ -4,9 +4,9 @@ const colors = {
 };
 
 const breakpoints = {
-  mobile: '480px',
-  tablet: '768px',
-  desktop: '1025px',
+  mobile: '640px',
+  tablet: '840px',
+  desktop: '1100px',
 };
 
 const size = {
