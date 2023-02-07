@@ -1,4 +1,3 @@
-import cogoToast from 'cogo-toast';
 import React, { createRef, useEffect, useState } from 'react';
 import { useId } from 'react';
 import './inp.css';
@@ -15,6 +14,7 @@ function InputFile({ cb, className }) {
   const id = useId();
   const classes = `inputfile__label ${className}`;
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const e = refInput.current;
 
@@ -42,7 +42,6 @@ function InputFile({ cb, className }) {
       cb();
     } else {
       setUploaded(false);
-      cogoToast.warn('Не удалось загрузить фотку', { position: 'top-right' });
     }
   }
 

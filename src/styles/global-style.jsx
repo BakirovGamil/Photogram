@@ -12,9 +12,16 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: ${({theme}) => theme.colors.primary};
+    background-color: ${({ theme }) => theme.colors.primary};
     font-family: 'Montserrat', sans-serif;
+    color: white;
   }
-`
+
+  .container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+`;
 
 export default GlobalStyle;

@@ -9,9 +9,14 @@ const breakpoints = {
   desktop: '1025px',
 };
 
+const size = {
+  header: '50px',
+};
+
 const theme = {
   colors,
   breakpoints,
+  size
 };
 
 export default theme;
