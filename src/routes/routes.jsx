@@ -1,5 +1,5 @@
-import Main from "@/views/Main"
+import Feed from "@/views/Feed"
 
 export const publicRoutes = [
-    {path: "/", element: <Main/>},
+    {path: "/", element: <Feed/>},
 ];

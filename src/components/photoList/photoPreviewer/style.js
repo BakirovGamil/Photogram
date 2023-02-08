@@ -90,7 +90,7 @@ export const ImgContainer = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     max-width: 100vw;
-    max-height: 100vh;
+    max-height: 90vh;
     min-width: auto;
     min-height: auto;
   }
