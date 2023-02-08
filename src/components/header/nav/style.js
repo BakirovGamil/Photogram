@@ -28,6 +28,8 @@ export const StyledLink = styled(Link)`
   align-items: center;
   gap: 10px;
   text-decoration: none;
+  padding: 0 10px;
+  margin-left: -10px;
 
   &:visited {
     color: white;
@@ -42,4 +44,5 @@ export const StyledButton = styled.button`
   font-size: 1rem;
   font-family: inherit;
   height: 100%;
+  padding: 0 10px;
 `;

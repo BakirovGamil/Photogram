@@ -1,8 +1,8 @@
 import * as S from './style';
 
-const Photo = ({ photo }) => {
+const Photo = ({ photo, onClick }) => {
   return (
-    <S.Container>
+    <S.Container onClick={onClick}>
       <S.ImgContainer>
         <S.Img src={photo.url} />
       </S.ImgContainer>

@@ -1,39 +1,27 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useEffect } from 'react';
-import classes from './Modal.module.css';
 
-function Modal({ children, visible, setVisible }) {
-  const rootClasses = [classes.myModal];
+import * as S from './style';
 
-  if (visible) {
-    rootClasses.push(classes.active);
-  }
-
-  function handleKeyUp(e) {
-    if (e.code === 'Escape') {
-      setVisible(false);
+const Modal = React.forwardRef(({ children, isVisible, setIsVisible}, ref) => {
+  const handleKeyUp = useCallback((e) => {
+    if (e.code === 'Escape' && isVisible) {
+      console.log(1);
+      setIsVisible(false);
     }
-  }
+  }, [isVisible, setIsVisible])
 
   useEffect(() => {
-    if (visible) document.addEventListener('keyup', handleKeyUp);
+    document.addEventListener('keyup', handleKeyUp);
 
     return () => document.removeEventListener('keyup', handleKeyUp);
-  });
+  }, [handleKeyUp]);
 
   return (
-    <div
-      className={rootClasses.join(' ')}
-      onMouseDown={() => setVisible(false)}
-    >
-      <div
-        className={classes.myModalContent}
-        onMouseDown={(e) => e.stopPropagation()}
-      >
-        {children}
-      </div>
-    </div>
+    <S.Container onMouseDown={() => setIsVisible(false)} isVisible={isVisible}>
+      <S.Content ref={ref} onMouseDown={(e) => e.stopPropagation()}>{children}</S.Content>
+    </S.Container>
   );
-}
+});
 
 export default Modal;
