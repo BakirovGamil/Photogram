@@ -44,6 +44,10 @@ export const Button = styled.button`
   width: 40%;
   background-color: transparent;
 
+  &:focus-visible {
+    outline: none;
+  }
+
   &::before {
     display: block;
     position: absolute;

@@ -29,7 +29,7 @@ export const StyledLink = styled(Link)`
   gap: 10px;
   text-decoration: none;
   padding: 0 10px;
-  margin-left: -10px;
+  color: white;
 
   &:visited {
     color: white;
