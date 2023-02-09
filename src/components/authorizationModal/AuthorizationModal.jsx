@@ -16,11 +16,11 @@ const AuthorizationModal = ({ isVisible, setIsVisible }) => {
   });
 
   const inputLogin = (e) => {
-    setUser({ ...user, login: e.target.value });
+    setUser({ ...user, login: e.target.value.trim() });
   };
 
   const inputPassword = (e) => {
-    setUser({ ...user, password: e.target.value });
+    setUser({ ...user, password: e.target.value.trim() });
   };
 
   return (
@@ -30,11 +30,13 @@ const AuthorizationModal = ({ isVisible, setIsVisible }) => {
         <S.Form onSubmit={authorization}>
           <TextInput
             placeholder="Введите логин"
+            value={user.login}
             onChange={inputLogin}
             required
           />
           <TextInput
             placeholder="Введите пароль"
+            value={user.password}
             onChange={inputPassword}
             type="password"
             required

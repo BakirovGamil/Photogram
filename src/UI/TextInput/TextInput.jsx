@@ -1,5 +1,3 @@
-import { useId } from 'react';
-
 import styled from 'styled-components';
 
 const StyledInput = styled.input`
@@ -21,15 +19,14 @@ const StyledInput = styled.input`
   }
 `;
 
-function TextInput({ placeholder = '', required = false, type = 'text' }) {
-  const id = useId();
-
+function TextInput({ placeholder = '', required = false, type = 'text', value, onChange }) {
   return (
     <StyledInput
       type={type}
       autoComplete="off"
       placeholder={placeholder}
-      id={id}
+      value={value}
+      onChange={onChange}
       required={required}
     />
   );
