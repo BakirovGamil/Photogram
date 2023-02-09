@@ -14,7 +14,7 @@ const rawUser = {
   password: '',
 };
 
-const RegistrationModal = ({ isVisible = true, setIsVisible }) => {
+const RegistrationModal = ({ isVisible, setIsVisible }) => {
   const [user, setUser] = useState(() => rawUser);
   const [, registration, errorRegistration] = useFeching(async (e) => {
     e.preventDefault();
@@ -26,7 +26,7 @@ const RegistrationModal = ({ isVisible = true, setIsVisible }) => {
   });
 
   const [imgPath, setImgPath] = useState('');
-  const inputValue = (property, value) => setUser({...user, [property]: value}) 
+  const inputValue = (value, property) => setUser({...user, [property]: value}) 
 
   return (
     <Modal isVisible={isVisible} setIsVisible={setIsVisible}>
