@@ -25,43 +25,40 @@ const RegistrationModal = ({ isVisible = true, setIsVisible }) => {
     // setUser(rawUser);
   });
 
-  const inputName = (e) => setUser({ ...user, name: e.target.value });
-  const inputLogin = (e) => setUser({ ...user, login: e.target.value.trim() });
-  const inputPassword = (e) =>
-    setUser({ ...user, password: e.target.value.trim() });
-  const inputAbout = (e) => setUser({ ...user, about: e.target.value });
+  const [imgPath, setImgPath] = useState('');
+  const inputValue = (property, value) => setUser({...user, [property]: value}) 
 
   return (
     <Modal isVisible={isVisible} setIsVisible={setIsVisible}>
       <S.Container>
         <S.Title>Регистрация</S.Title>
         <S.Form onSubmit={registration}>
-          <ImageInput />
+          <ImageInput value={imgPath} setValue={setImgPath}/>
           <S.Label>Имя:</S.Label>
           <TextInput
             placeholder="Введите имя"
             value={user.name}
-            onChange={inputName}
+            onChange={(e) => inputValue(e.target.value, 'name')}
             required
           />
           <S.Label>О себе:</S.Label>
           <S.TextArea
             placeholder="Напишите о себе"
             value={user.about}
-            onChange={inputAbout}
+            onChange={(e) => inputValue(e.target.value, 'about')}
           />
           <S.Label>Логин:</S.Label>
           <TextInput
             placeholder="Введите логин"
             value={user.login}
-            onChange={inputLogin}
+            onChange={(e) => inputValue(e.target.value.trim(), 'login')}
             required
           />
           <S.Label>Пароль:</S.Label>
           <TextInput
             placeholder="Введите пароль"
             value={user.password}
-            onChange={inputPassword}
+            onChange={(e) => inputValue(e.target.value.trim(), 'password')}
             type="password"
             required
           />

@@ -4,23 +4,19 @@ import * as S from './style';
 
 const filesExt = ['png', 'jpg', 'jpeg'];
 
-function ImageInput({ cb }) {
+function ImageInput({ value, setValue }) {
   const [uploaded, setUploaded] = useState(false);
-  const [filePath, setFilePath] = useState('');
   const id = useId();
 
   function uploadFile(e) {
     const newPath = e.target.value;
-    setFilePath(newPath);
+    setValue(newPath);
 
     if (filesExt.some((ext) => newPath.endsWith(ext))) {
       setUploaded(true);
-      if (typeof cb === 'function') {
-        cb();
-      }
     } else {
       setUploaded(false);
-      setFilePath('');
+      setValue('');
     }
   }
 
@@ -28,7 +24,7 @@ function ImageInput({ cb }) {
     <S.Container>
       <S.FileInput
         onChange={uploadFile}
-        value={filePath}
+        value={value}
         accept={filesExt.map((ext) => `.${ext}`).join(',')}
         id={id}
       />
