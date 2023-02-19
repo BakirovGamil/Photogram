@@ -10,6 +10,18 @@ export const List = styled.ul`
   display: flex;
   gap: 15px;
   height: 100%;
+
+  @media (max-width: ${({theme}) => theme.breakpoints.sideMenu}) {
+    display: none;
+  }
+`;
+
+export const ListForMobile = styled(List)`
+  display: none;
+
+  @media (max-width: ${({theme}) => theme.breakpoints.sideMenu}) {
+    display: flex;
+  }
 `;
 
 export const Item = styled.li`

@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 
 import Loader from '@/UI/Loader/Loader';
 import PhotoList from '@c/photoList/PhotoList';
-import useFetching from '../hooks/useFetching';
+import useFetching from '@/hooks/useFetching';
 
 const Main = () => {
   const [photos, setPhotos] = useState([]);

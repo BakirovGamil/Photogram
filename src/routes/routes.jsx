@@ -1,4 +1,4 @@
-import Feed from '@/views/Feed';
+import Feed from '@/views/feed/Feed';
 import ProfileWrapper from '@/views/profile/ProfileWrapper';
 
 export const publicRoutes = [
