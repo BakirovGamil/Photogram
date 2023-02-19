@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Modal from '@/UI/Modal/Modal';
 import TextInput from '@/UI/TextInput/TextInput';
 import ImageInput from '@/UI/ImageInput/ImageInput';
+import Button from '@/UI/Button/Button';
 import useFeching from '@/hooks/useFetching';
 
 import * as S from './style';
@@ -15,25 +16,26 @@ const rawUser = {
 };
 
 const RegistrationModal = ({ isVisible, setIsVisible }) => {
+  const [imgPath, setImgPath] = useState('');
   const [user, setUser] = useState(() => rawUser);
   const [, registration, errorRegistration] = useFeching(async (e) => {
     e.preventDefault();
-    e.target.reset();
 
     //Тут обработка авторизации
 
-    // setUser(rawUser);
+    setImgPath('');
+    setUser(rawUser);
   });
 
-  const [imgPath, setImgPath] = useState('');
-  const inputValue = (value, property) => setUser({...user, [property]: value}) 
+  const inputValue = (value, property) =>
+    setUser({ ...user, [property]: value });
 
   return (
     <Modal isVisible={isVisible} setIsVisible={setIsVisible}>
       <S.Container>
         <S.Title>Регистрация</S.Title>
         <S.Form onSubmit={registration}>
-          <ImageInput value={imgPath} setValue={setImgPath}/>
+          <ImageInput value={imgPath} setValue={setImgPath} />
           <S.Label>Имя:</S.Label>
           <TextInput
             placeholder="Введите имя"
@@ -62,7 +64,7 @@ const RegistrationModal = ({ isVisible, setIsVisible }) => {
             type="password"
             required
           />
-          <S.Button>Зарегистрироваться</S.Button>
+          <Button>Зарегистрироваться</Button>
         </S.Form>
       </S.Container>
     </Modal>

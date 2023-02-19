@@ -21,19 +21,3 @@ export const Form = styled.form`
   flex-direction: column;
   gap: 15px;
 `;
-
-export const Button = styled.button`
-  border: none;
-  font-size: 1rem;
-  text-align: center;
-  width: 100%;
-  padding: 10px 0;
-  background-color: #1b1a20;
-  transition: background-color 0.2s ease 0s;
-  cursor: pointer;
-  color: #fff;
-
-  &:hover {
-    background: rgb(234, 191, 0);
-  }
-`;

@@ -1,6 +1,6 @@
 const colors = {
   primary: 'rgb(34, 34, 38)',
-  secondary: '#333336;',
+  secondary: '#333336',
 };
 
 const breakpoints = {

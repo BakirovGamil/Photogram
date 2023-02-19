@@ -32,9 +32,17 @@ const PhotoList = ({ title, photos }) => {
   ));
 
   return (
-    <div>
+    <S.Container>
       <S.Title>{title}</S.Title>
       <S.Photos>{photoComponents}</S.Photos>
+      {
+        photos.length === 0 &&
+        <S.EmptyWarning>
+          <i className="gg-image"></i>
+          Нет фотографий
+        </S.EmptyWarning>
+      }
+
       {selectedPhoto && (
         <PhotoPreviewer
           photo={selectedPhoto}
@@ -44,7 +52,7 @@ const PhotoList = ({ title, photos }) => {
           onNext={selectNextPhoto}
         />
       )}
-    </div>
+    </S.Container>
   );
 };
 

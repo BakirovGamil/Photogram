@@ -4,7 +4,7 @@ import * as S from './style';
 
 const filesExt = ['png', 'jpg', 'jpeg'];
 
-function ImageInput({ value, setValue }) {
+const ImageInput = ({ value, setValue }) => {
   const [uploaded, setUploaded] = useState(false);
   const id = useId();
 
@@ -29,10 +29,10 @@ function ImageInput({ value, setValue }) {
         id={id}
       />
       <S.Label htmlFor={id} uploaded={uploaded}>
-        Загрузить фотку
+        Выбрать фотографию
       </S.Label>
     </S.Container>
   );
-}
+};
 
 export default ImageInput;

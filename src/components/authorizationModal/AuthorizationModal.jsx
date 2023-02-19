@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Modal from '@/UI/Modal/Modal';
 import TextInput from '@/UI/TextInput/TextInput';
+import Button from '@/UI/Button/Button';
 import useFeching from '@/hooks/useFetching';
 
 import * as S from './style';
@@ -41,7 +42,7 @@ const AuthorizationModal = ({ isVisible, setIsVisible }) => {
             type="password"
             required
           />
-          <S.Button>Вход</S.Button>
+          <Button>Вход</Button>
         </S.Form>
       </S.Container>
     </Modal>

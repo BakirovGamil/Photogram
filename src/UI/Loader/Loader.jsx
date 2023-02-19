@@ -1,6 +1,6 @@
 import cls from './Loader.module.css';
 
-function Loader() {
+const Loader = () => {
   return (
     <div className={cls['mosaic-loader']}>
       <div className={[cls.cell, cls['d-0']].join(' ')}></div>
