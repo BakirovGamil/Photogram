@@ -3,9 +3,10 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   padding: 5px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    width: 80vw;
+  width: 600px;
+  
+  @media (max-width: ${({theme}) => theme.breakpoints.mobile}) {
+    width: 100%;
   }
 `;
 
@@ -79,17 +80,8 @@ export const PrevButton = styled(Button)`
 
 export const ImgContainer = styled.div`
   position: relative;
-  max-width: 80vw;
-  max-height: 80vh;
-  min-width: 600px;
-  min-height: 600px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    max-width: 100vw;
-    max-height: 90vh;
-    min-width: auto;
-    min-height: auto;
-  }
+  width: 100%;
+  height: 100%;
 `;
 
 export const Img = styled.img`
