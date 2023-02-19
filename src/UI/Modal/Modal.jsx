@@ -1,9 +1,7 @@
-import React, { useCallback } from 'react';
-import { useEffect } from 'react';
-
+import React, { useCallback, useEffect } from 'react';
 import * as S from './style';
 
-const Modal = React.forwardRef(({ children, isVisible, setIsVisible}, ref) => {
+const Modal = React.forwardRef(({ isVisible, setIsVisible, children }, ref) => {
   const handleKeyUp = useCallback((e) => {
     if (e.code === 'Escape' && isVisible) {
       console.log(1);
@@ -41,10 +39,21 @@ const Modal = React.forwardRef(({ children, isVisible, setIsVisible}, ref) => {
     }
   }, [isVisible]);
 
+  const hideModal = (e) => {
+    const leftMouse = 0;
+
+    if(e.button === leftMouse) {
+      setIsVisible(false);
+    }
+  }
+
   return (
-    <S.Container onMouseDown={() => setIsVisible(false)} isVisible={isVisible}>
-      <S.Content ref={ref} onMouseDown={(e) => e.stopPropagation()}>{children}</S.Content>
-    </S.Container>
+    <S.Overlay onMouseDown={hideModal} isVisible={isVisible}>
+      <S.CloseButton title="Закрыть" />
+      <S.Container ref={ref} onMouseDown={(e) => e.stopPropagation()}>
+        <S.Content>{children}</S.Content>
+      </S.Container>
+    </S.Overlay>
   );
 });
 

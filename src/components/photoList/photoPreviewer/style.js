@@ -7,10 +7,6 @@ export const Container = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     width: 80vw;
   }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    width: 100vw;
-  }
 `;
 
 export const Author = styled(Link)`
