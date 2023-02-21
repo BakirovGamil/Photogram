@@ -16,7 +16,10 @@ const Profile = ({ userId }) => {
   const [isLoadingUser, fetchUser, errorUser] = useFetching(async () => {
     const response = await UserService.getBy('id', userId); //Возвращает массив с пользователем
     const recievedUser = await response.json();
-    setUser(recievedUser[0]);
+    
+    if(recievedUser.length) {
+      setUser(recievedUser[0]);
+    }
   });
   const [isLoadingPhotos, fetchPhotos, errorPhotos] = useFetching(async () => {
     const response = await PhotoService.getBy('userId', userId);
@@ -58,7 +61,7 @@ const Profile = ({ userId }) => {
           )}
 
           {isError && (
-            <S.ErrorWarning>Проверьте подключение к интернету</S.ErrorWarning>
+            <S.ErrorWarning>Произошла ошибка при загрузке профиля или фотографий</S.ErrorWarning>
           )}
         </div>
       )}

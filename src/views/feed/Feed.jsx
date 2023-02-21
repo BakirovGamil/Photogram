@@ -5,9 +5,11 @@ import Loader from '@/UI/Loader/Loader';
 import PhotoList from '@c/photoList/PhotoList';
 import useFetching from '@/hooks/useFetching';
 
+import * as S from './style';
+
 const Main = () => {
   const [photos, setPhotos] = useState([]);
-  const [isLoading, fetchPhotos, error] = useFetching(async () => {
+  const [isLoadingPhotos, fetchPhotos, errorPhotos] = useFetching(async () => {
     const response = await fetch(
       'https://jsonplaceholder.typicode.com/photos?_limit=30'
     );
@@ -17,8 +19,14 @@ const Main = () => {
 
   useEffect(() => {
     fetchPhotos();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const isError = Boolean(errorPhotos);
+  const renderedPhotoList = isError ? (
+    <S.ErrorWarning>Произошла ошбика при загрузке рекомендаций</S.ErrorWarning>
+  ) : (
+    <PhotoList title="Рекомендации" photos={photos} />
+  );
 
   return (
     <main>
@@ -26,11 +34,7 @@ const Main = () => {
         <title>Лента</title>
       </Helmet>
       <div className="container">
-        {isLoading && !error ? (
-          <Loader />
-        ) : (
-          <PhotoList title="Рекомендации" photos={photos} />
-        )}
+        {isLoadingPhotos ? <Loader /> : <>{renderedPhotoList}</>}
       </div>
     </main>
   );
