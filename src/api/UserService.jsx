@@ -1,28 +1,28 @@
 const userApiUrl = new URL('/API/users/', window.location);
 
-const getUrl = (path) => new URL(path, userApiUrl);
+const createURL = (path) => new URL(path, userApiUrl);
 
 export default class UserService {
   static async getAll(limit) {
-    const response = fetch(getUrl(`getAll/?_limit=${limit}`));
+    const response = fetch(createURL(`getAll/?_limit=${limit}`));
 
     return response;
   }
 
   static async getBy(key, value) {
-    const response = fetch(getUrl(`getBy/?${key}=${value}`));
+    const response = fetch(createURL(`getBy/?${key}=${value}`));
 
     return response;
   }
 
   static async getCurrentUser() {
-    const response = fetch(getUrl(`getCurrentUser`));
+    const response = fetch(createURL(`getCurrentUser`));
 
     return response;
   }
 
   static async authorization(dataObject) {
-    const response = await fetch(getUrl(`authorization`), {
+    const response = await fetch(createURL(`authorization`), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -34,7 +34,7 @@ export default class UserService {
   }
 
   static async registration(dataObject) {
-    const response = await fetch(getUrl(`registration`), {
+    const response = await fetch(createURL(`registration`), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -46,13 +46,13 @@ export default class UserService {
   }
 
   static async getUsersByName(name) {
-    const response = fetch(getUrl(`getUsersByName/?name=${name}`));
+    const response = fetch(createURL(`getUsersByName/?name=${name}`));
 
     return response;
   }
 
   static async logout() {
-    const response = await fetch(getUrl(`logout`));
+    const response = await fetch(createURL(`logout`));
 
     return response;
   }

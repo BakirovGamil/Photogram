@@ -1,10 +1,10 @@
 const photoApiUrl = new URL('/API/photos/', window.location);
 
-const getUrl = (path) => new URL(path, photoApiUrl);
+const createURL = (path) => new URL(path, photoApiUrl);
 
 export default class PhotoService {
   static async putNewPhoto(newPhoto) {
-    const response = await fetch(getUrl(`putNewPhoto`), {
+    const response = await fetch(createURL(`putNewPhoto`), {
       //Возвращает объект с ссылкой
       method: 'POST',
       body: JSON.stringify(newPhoto),
@@ -15,7 +15,7 @@ export default class PhotoService {
 
   static async uploadPhoto(formData) {
     // Возвращает ссылку
-    const response = await fetch(getUrl(`uploadPhoto`), {
+    const response = await fetch(createURL(`uploadPhoto`), {
       method: 'POST',
       body: formData,
     });
@@ -24,19 +24,19 @@ export default class PhotoService {
   }
 
   static async getBy(key, value) {
-    const response = fetch(getUrl(`getBy/?${key}=${value}`));
+    const response = fetch(createURL(`getBy/?${key}=${value}`));
 
     return response;
   }
 
   static async getAll(limit) {
-    const response = fetch(getUrl(`getAll/?limit=${limit}`));
+    const response = fetch(createURL(`getAll/?limit=${limit}`));
 
     return response;
   }
 
   static async deleteById(id) {
-    const response = fetch(getUrl(`deleteById`), {
+    const response = fetch(createURL(`deleteById`), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -48,7 +48,7 @@ export default class PhotoService {
   }
 
   static async updatePhoto(photo) {
-    const response = fetch(getUrl(`updatePhoto`), {
+    const response = fetch(createURL(`updatePhoto`), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',

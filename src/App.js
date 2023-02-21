@@ -2,7 +2,6 @@ import { Route, Routes } from 'react-router-dom';
 import { publicRoutes } from '@/routes/routes';
 import Header from '@c/header/Header';
 
-
 function App() {
   return (
     <>
