@@ -11,7 +11,7 @@ export const List = styled.ul`
   gap: 15px;
   height: 100%;
 
-  @media (max-width: ${({theme}) => theme.breakpoints.sideMenu}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.sideMenu}) {
     display: none;
   }
 `;
@@ -19,7 +19,7 @@ export const List = styled.ul`
 export const ListForMobile = styled(List)`
   display: none;
 
-  @media (max-width: ${({theme}) => theme.breakpoints.sideMenu}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.sideMenu}) {
     display: flex;
   }
 `;

@@ -1,4 +1,6 @@
 import React, { useCallback, useEffect } from 'react';
+import { disableDocumentScroll, enableDocumentScroll } from '@/utils/scroll';
+
 import * as S from './style';
 
 const Modal = React.forwardRef(({ isVisible, setIsVisible, children }, ref) => {
@@ -15,27 +17,11 @@ const Modal = React.forwardRef(({ isVisible, setIsVisible, children }, ref) => {
     return () => document.removeEventListener('keyup', handleKeyUp);
   }, [handleKeyUp]);
 
-  const disableScroll = () => {
-    const body  = document.body;
-    body.style.position = 'fixed';
-    body.style.width = '100%';
-    
-    if(body.scrollHeight > window.innerHeight) {
-      body.style.overflowY = 'scroll';
-    }
-  };
-
-  const enableScroll = () => {
-    const body  = document.body;
-    body.style.position = 'static';
-    body.style.overflowY = '';
-  };
-
   useEffect(() => {
     if(isVisible) {
-      disableScroll();
+      disableDocumentScroll();
     } else {
-      enableScroll();
+      enableDocumentScroll();
     }
   }, [isVisible]);
 

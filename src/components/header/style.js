@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 
-export const container = styled.div`
-  position: relative;
-`
+const setWidth = ({width}) => ({
+  style: {
+    width
+  }
+});
+export const Container = styled.div.attrs(setWidth)``;
 
-export const header = styled.div`
+export const Header = styled.header`
   position: fixed;
   z-index: 100;
   width: 100%;
@@ -14,6 +17,6 @@ export const header = styled.div`
   height: ${({ theme }) => theme.size.header};
 `;
 
-export const fakeHeader = styled.div`
+export const FakeHeader = styled.div`
   height: ${({ theme }) => theme.size.header};
 `;
